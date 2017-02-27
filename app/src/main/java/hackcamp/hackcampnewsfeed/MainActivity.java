@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -86,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
                             for (Article article : articleList){
                                 listItems.add(article.getTitle());
                             }
-                            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1,android.R.id.text1,listItems);
+
+                            NewsFeedAdapter adapter = new NewsFeedAdapter(MainActivity.this,R.layout.item_list_view,articleList);
+//                            ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1,android.R.id.text1,listItems);
                             listView.setAdapter(adapter);
 //
                         } catch (IOException e) {
